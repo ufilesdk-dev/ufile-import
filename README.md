@@ -71,7 +71,7 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
 
 ####  1. 下载安装包
  - Linux64位操作系统请下载
-	下载地址: http://s3browser.com
+	下载地址: https://github.com/ufilesdk-dev/ufile-import/tree/master
 
 ####  2. 安装程序。
  -  进入下载安装包目录，解压文件.   
