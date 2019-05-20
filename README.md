@@ -35,35 +35,35 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
 
 ## 配置文件说明
  - #### 阿里云配置文件说明
- ```html
-	  {    
-  	"endpoint": "",       //阿里云OSS域名
-  	"bucket": "%BUCKET%", //阿里云OSS存储空间名称
- 	"accessID": "",         //公钥信息
- 	"accessKey": ""         //私钥信息
-	  }  
- ```  
+   >
+   >{    
+  	"endpoint": "",       //阿里云OSS域名  
+  	"bucket": "%BUCKET%", //阿里云OSS存储空间名称  
+ 	  "accessID": "",         //公钥信息  
+ 	  "accessKey": ""         //私钥信息  
+   >}    
+
  - #### UFile配置文件
- ```html
-	  {
-        "public_key":"",     //公钥
-        "private_key":"",    	 //私钥
-        "bucket_name":"%BUCKET%", //bucket名称
-        "file_host":"", //bucket的host信息，例如:cn-bj.ufileos.com
-        "bucket_host":"" //为空
-      }
- ```
+   >
+   >  {  
+        "public_key":"",     //公钥  
+        "private_key":"",    	 //私钥  
+        "bucket_name":"%BUCKET%", //bucket名称  
+        "file_host":"", //bucket的host信息，例如:cn-bj.ufileos.com  
+        "bucket_host":"" //为空  
+      }  
+ 
  - #### ufile-import配置文件说明
- ```html
-	 {
-     "redis": "localhost:6379", //本地redis服务端口号
-     "concurrent": 40, //每秒处理的线程数
-     "temp": "/tmp/", //存放文件的临时文件夹目录
-     "retry_count": 4, //如果失败了，尝试重试的次数。
-     "source": "${filename}.oss.json",  //源站的配置文件名称
-     "destine": "${filename}.ufile.json"//目标空间的配置文件名称
-     }
- ```
+   >
+   >{  
+     "redis": "localhost:6379", //本地redis服务端口号  
+     "concurrent": 40, //每秒处理的线程数  
+     "temp": "/tmp/", //存放文件的临时文件夹目录   
+     "retry_count": 4, //如果失败了，尝试重试的次数。  
+     "source": "${filename}.oss.json",  //源站的配置文件名称  
+     "destine": "${filename}.ufile.json"//目标空间的配置文件名称  
+  }  
+ 
 
 ## 安装和使用
 
@@ -96,39 +96,39 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
      - `2. mkdir job_test` 创建存放配置文件的文件夹  
      - `3. cp template/oss.json.template ./job_test/src.oss.json` 复制配置文件模板到指定目录  
      - 编辑src.oss.json文件，填写内容如下:
-     ```html
-     {    
-  	    "endpoint": "oss-cn-beijing.aliyuncs.com",      //阿里云OSS域名         
-  	    "bucket": "oss-test-bucket",                    //阿里云OSS存储空间名称      
- 	    "accessID": "osstestaccessId",                     //公钥信息          
- 	    "accessKey": "osstestaccessKeyDate"                //私钥信息    
-	  }  
-     ```
+        >
+        >{      
+  	     "endpoint": "oss-cn-beijing.aliyuncs.com",      //阿里云OSS域名            
+  	     "bucket": "oss-test-bucket",                    //阿里云OSS存储空间名称         
+ 	       "accessID": "osstestaccessId",                     //公钥信息             
+ 	       "accessKey": "osstestaccessKeyDate"                //私钥信息       
+	       }  
+    
    - #### 复制ufile配置文件，并且编辑填写相应内容:
      - 复制配置文件模板`cp template/ufile.json.template ./job_test/dst.oss.json`
      - 编辑`dst.oss.json`,填写内容如下
-     ```hmtl
-     {    
-     "public_key":"ufiletestpublickey",        //公钥           
-   	 "private_key":"ufileprivatekeydata",    	 //私钥
-     "bucket_name":"ufile-test-bucket", //bucket名称
-     "file_host":"cn-sh2.ufileos.com", //bucket的host信息，例如:cn-bj.ufileos.com
-     "bucket_host":"" //为空
-     } 
-     ```
+         >
+         > {    
+         "public_key":"ufiletestpublickey",        //公钥              
+   	     "private_key":"ufileprivatekeydata",    	 //私钥  
+         "bucket_name":"ufile-test-bucket", //bucket名称  
+         "file_host":"cn-sh2.ufileos.com", //bucket的host信息，例如:cn-bj.ufileos.com  
+         "bucket_host":"" //为空  
+         } 
+     
    - #### 复制ufile-import配置文件，并且编辑填写相应内容:
      - 复制配置文件模板 `cp template/ufile-import.json.template ./job_test/ufile-import.json`
      - 编写ufile-import.json配置文件，填写内容如下：
-     ```html
-	   {
-         "redis": "localhost:6379", //本地redis服务端口号
-         "concurrent": 40, //每秒处理的线程数
-         "temp": "/tmp/", //存放文件的临时文件夹目录
-         "retry_count": 4, //如果失败了，尝试重试的次数。
-         "source": "src.oss.json",  //源站的配置文件名称
-         "destine": "dst.ufile.json"//目标空间的配置文件名称
+        >
+	      >{  
+         "redis": "localhost:6379", //本地redis服务端口号  
+         "concurrent": 40, //每秒处理的线程数  
+         "temp": "/tmp/", //存放文件的临时文件夹目录  
+         "retry_count": 4, //如果失败了，尝试重试的次数。  
+         "source": "src.oss.json",  //源站的配置文件名称  
+         "destine": "dst.ufile.json"//目标空间的配置文件名称  
        }
-     ```
+     
      #### 启动ufile-import服务
      显示执行:`./ufile-import ./job_test`,启动服务。
      如果要后台执行服务,可以执行`nohup ./ufile-import ./job_test &`  启动服务。
@@ -141,40 +141,39 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
      - `2. mkdir job_test` 创建存放配置文件的文件夹  
      - `3. cp template/ufile.json.template ./job_test/src.ufile.json` 复制配置文件模板到指定目录  
      - 编辑src.oss.json文件，填写内容如下:
-     ```html
-     {    
-       "public_key":"ufiletestpublickeyA",        //公钥           
-   	   "private_key":"ufileprivatekeydataA",    	 //私钥
-       "bucket_name":"ufile-bucket-A", //bucket名称
-       "file_host":"cn-sh2.ufileos.com", //bucket的host信息，例如:cn-bj.ufileos.com
-       "bucket_host":"" //为空
-     }
-     ```
+       >
+       >{      
+       "public_key":"ufiletestpublickeyA",        //公钥             
+   	   "private_key":"ufileprivatekeydataA",    	 //私钥  
+       "bucket_name":"ufile-bucket-A", //bucket名称  
+       "file_host":"cn-sh2.ufileos.com", //bucket的host信息，例如:cn-bj.ufileos.com  
+       "bucket_host":"" //为空  
+      }
+     
    - #### 复制ufile配置文件，并且编辑填写相应内容:
      - 复制配置文件模板`cp template/ufile.json.template ./job_test/dst.oss.json`
      - 编辑`dst.oss.json`,填写内容如下
-     ```hmtl
-     {    
+       >
+       >{    
        "public_key":"ufiletestpublickeyB",        //公钥           
    	   "private_key":"ufileprivatekeydataB",    	 //私钥
        "bucket_name":"ufile-bucket-B", //bucket名称
-       "file_host":"cn-bj.ufileos.com", //bucket的host信息，例如:cn-bj.ufileos.com
-       "bucket_host":"" //为空
-     } 
-     ```
+       "file_host":"cn-bj.ufileos.com", //bucket的host信息，例如:cn-bj.ufileos.com  
+       "bucket_host":"" //为空  
+       >}   
+     
    - #### 复制ufile-import配置文件，并且编辑填写相应内容:
      - 复制配置文件模板 `cp template/ufile-import.json.template ./job_test/ufile-import.json`
      - 编写ufile-import.json配置文件，填写内容如下：
-     ```html
-	    {
-        "redis": "localhost:6379", //本地redis服务端口号
-         "concurrent": 40, //每秒处理的线程数
-        "temp": "/tmp/", //存放文件的临时文件夹目录
-        "retry_count": 4, //如果失败了，尝试重试的次数。
-        "source": "src.ufile.json",  //源站的配置文件名称
-        "destine": "dst.ufile.json"//目标空间的配置文件名称
-        }
-        ```
+       >
+	     >{  
+        "redis": "localhost:6379", //本地redis服务端口号  
+         "concurrent": 40, //每秒处理的线程数  
+        "temp": "/tmp/", //存放文件的临时文件夹目录  
+        "retry_count": 4, //如果失败了，尝试重试的次数。   
+        "source": "src.ufile.json",  //源站的配置文件名称  
+        "destine": "dst.ufile.json"//目标空间的配置文件名称  
+        >}   
      #### 启动ufile-import服务
       显示执行:`./ufile-import ./job_test`,启动服务。
       如果要后台执行服务,可以执行`nohup ./ufile-import ./job_test &`  启动服务。
