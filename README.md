@@ -34,27 +34,27 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
 
 
 ## 配置文件说明
-- #### 阿里云配置文件说明
-```html
+ - #### 阿里云配置文件说明
+ ```html
 	  {    
-  	 "endpoint": "",         //阿里云OSS域名    
-  	 "bucket": "%BUCKET%",   //阿里云OSS存储空间名称    
- 	   "accessID": "",         //公钥信息          
- 	   "accessKey": ""         //私钥信息    
+  	"endpoint": "",       //阿里云OSS域名
+  	"bucket": "%BUCKET%", //阿里云OSS存储空间名称
+ 	"accessID": "",         //公钥信息
+ 	"accessKey": ""         //私钥信息
 	  }  
-```  
-- #### UFile配置文件
-```html
-	   {
-     "public_key":"",        //公钥           
-   	 "private_key":"",    	 //私钥
-     "bucket_name":"%BUCKET%", //bucket名称
-     "file_host":"", //bucket的host信息，例如:cn-bj.ufileos.com
-     "bucket_host":"" //为空
-   }
-```
-- #### ufile-import配置文件说明
-```html
+ ```  
+ - #### UFile配置文件
+ ```html
+	  {
+        "public_key":"",     //公钥
+        "private_key":"",    	 //私钥
+        "bucket_name":"%BUCKET%", //bucket名称
+        "file_host":"", //bucket的host信息，例如:cn-bj.ufileos.com
+        "bucket_host":"" //为空
+      }
+ ```
+ - #### ufile-import配置文件说明
+ ```html
 	 {
      "redis": "localhost:6379", //本地redis服务端口号
      "concurrent": 40, //每秒处理的线程数
@@ -63,7 +63,7 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
      "source": "${filename}.oss.json",  //源站的配置文件名称
      "destine": "${filename}.ufile.json"//目标空间的配置文件名称
    }
-```
+ ```
 
 ## 安装和使用
 
