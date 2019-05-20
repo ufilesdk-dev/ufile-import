@@ -1,9 +1,20 @@
-[toc]
 # UFile迁移工具使用说明
-## 说明及配置
+<!-- TOC --> 
+ - [介绍](#介绍)    
+      - [适用情况](#适用情况)        
+      - [准备工作](#准备工作)              
+      - [名词定义](#名词定义)    
+      - [配置文件说明](#配置文件说明)    
+ - [安装](#安装)        
+      -  [通用步骤](#通用步骤) 
+ - [使用方法](#使用方法)    
+      - [从阿里云oss迁移到UFile对象存储](#从阿里云oss迁移到UFile对象存储)
+      - [UFile对象存储不同bucket之前的数据迁移](#UFile对象存储不同bucket之前的数据迁移)
+      - [分布式](#分布式)
+       
+ <!-- /TOC -->
+## 介绍
 ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)的工具。您可以将ufile-import部署在本地服务或者云主机上，轻松将您其他云存储的数据迁移到UFile。
-
-## 安装和使用
 
 ### 适用情况
 
@@ -13,7 +24,7 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
 ### 准备工作
 1. 根据需要迁移的文件的总大小，选择硬盘合适的云主机。必须要保证`硬盘存储量大于文件迁移数据量`,否则可能会因为硬盘大小不够，而造成迁移数据不完整。
 
-### 名词定义（Definition）
+### 名词定义
 这里我们将介绍一些名词，稍后再使用`ufile-import`工具的过程中，您会看到他们。工具中将只显示英文，为了方便您理解，我们特别将关键字都以中文对照以及解释的方式列在下面，方便参考。
 
 |序号(Index)|英文(English)|中文(Chinese)|工具当中的选项(Corresponding Options in "ufile-import")|释义|
@@ -65,7 +76,7 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
   }  
  
 
-## 安装和使用
+## 安装
 
 ### 通用步骤:
 
@@ -87,7 +98,7 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
      root      5318     1  0 14:50 pts/0    00:00:15 ./redis-server 127.0.0.1:6379
      ```
 ## 使用方法
-   ### 情景一：从阿里云oss迁移到UFile对象存储
+   ### 从阿里云oss迁移到UFile对象存储
    假设我在阿里云oss有一个bucket，名字为`oss-test-bucket`,所在地域为华北2（北京）,对应的外网访问EndPoint为:`oss-cn-beijing.aliyuncs.com`,accessId为:`osstestaccessId`,accessKey为:`osstestaccessKeyDate`  
    我在UFile对象存储有一个bucket,名字为`ufile-test-bucket`,所在地域为上海，对应的外网访问域名host为:`ufile-test-bucket.cn-sh2.ufileos.com`,公钥为:`ufiletestpublickey`,私钥为:`ufileprivatekeydata`  
 
@@ -133,7 +144,7 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
      显示执行:`./ufile-import ./job_test`,启动服务。
      如果要后台执行服务,可以执行`nohup ./ufile-import ./job_test &`  启动服务。
  
- ### 情景二：UFile对象存储不同bucket之前的数据迁移
+ ### UFile对象存储不同bucket之前的数据迁移
    假设我在UFile对象存储有一个bucket,名字为`ufile-bucket-A`,所在地域为上海，对应的外网访问域名host为:`ufile-bucket-A.cn-sh2.ufileos.com`,公钥为:`ufiletestpublickeyA`,私钥为:`ufileprivatekeydataA`  
    我想将数据迁到另外一个bucket，名字为`ufile-bucket-B`,所在地域为北京，对应的外网访问域名host为:`ufile-bucket-B.cn-bj.ufileos.com`,公钥为:`ufiletestpublickeyB`,私钥为:`ufileprivatekeydataB`.
    - #### 首先，进入`ufile-import`目录，编写UFile配置文件。  
