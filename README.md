@@ -1,7 +1,5 @@
 # UFile迁移工具使用说明
-[toc]
-
----
+@[TOC]
 ## 说明及配置
 ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)的工具。您可以将ufile-import部署在本地服务或者云主机上，轻松将您其他云存储的数据迁移到UFile。
 
