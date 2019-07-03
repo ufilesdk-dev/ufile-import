@@ -9,6 +9,7 @@
       -  [通用步骤](#通用步骤) 
  - [使用方法](#使用方法)    
       - [从阿里云oss迁移到UFile对象存储](#从阿里云oss迁移到UFile对象存储)
+      - [从七牛云Kodo迁移到UFile对象存储](#从七牛云Kodo迁移到UFile对象存储)
       - [UFile对象存储不同bucket之前的数据迁移](#UFile对象存储不同bucket之前的数据迁移)
       - [分布式方式](#分布式方式)
        
@@ -41,8 +42,9 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
 |8|bucket_host|无效信息，请忽略|无效信息，请忽略|无效信息，请忽略|
 |9|	job|	迁移工作|	${job_test}|在开始迁移之前，您必须创建一个迁移工作(job)，迁移工作是一个单独的目录，应该包含三个文件，分别:*.oss.json, *.ufile.json, ufile-import.json|
 |10|	*.oss.json|	OSS空间描述文件|	oss.json	|这个文件描述了一个oss的bucket信息，包括bucket的名称，接入点(endpoint)，AccessID和AccessKey。星号"*"可以代表任意字符串。后缀oss.json不可更改。对于后缀为oss.json的配置文件，ufile-import工具会认为其描述的空间是阿里云OSS的空间。|
-|11|	*.ufile.json|	UFILE空间描述文件	|ufile.json|	这个文件描述了一个ufile的bucket信息，包括bucket的名称，接入域名(bucket_host)，公钥和私钥。星号"*"可以代替任意字符串。后缀ufile.json不可更改。对于后缀为ufile.json的配置文件，ufile-import工具会认为其描述的空间是UFILE的空间。|
-|12|ufile-import.json|	ufile-import配置文件|	ufile-import.json	|这个文件描述了ufile-import工具运行的配置信息，每个迁移工作(job)一份，也就是说，每个迁移工作(job)可以使用不同的配置。可以在ufile-import.json中指定源bucket信息和目标bucket信息的配置文件。这个两个文件默认和ufile-import.json位于同一个文件夹下|
+|11|	*.kodo.json|	Kodo空间描述文件|	kodo.json	|这个文件描述了一个Kodo的bucket信息，包括bucket的名称，绑定的域名，AccessKey和SecretKey。星号"*"可以代表任意字符串。后缀kodo.json不可更改。对于后缀为kodo.json的配置文件，ufile-import工具会认为其描述的空间是七牛云Kodo的空间。|
+|12|	*.ufile.json|	UFILE空间描述文件	|ufile.json|	这个文件描述了一个ufile的bucket信息，包括bucket的名称，接入域名(bucket_host)，公钥和私钥。星号"*"可以代替任意字符串。后缀ufile.json不可更改。对于后缀为ufile.json的配置文件，ufile-import工具会认为其描述的空间是UFILE的空间。|
+|13|ufile-import.json|	ufile-import配置文件|	ufile-import.json	|这个文件描述了ufile-import工具运行的配置信息，每个迁移工作(job)一份，也就是说，每个迁移工作(job)可以使用不同的配置。可以在ufile-import.json中指定源bucket信息和目标bucket信息的配置文件。这个两个文件默认和ufile-import.json位于同一个文件夹下|
 
 
 ## 配置文件说明
