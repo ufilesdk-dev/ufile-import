@@ -20,6 +20,7 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
 ### 适用情况
 
  - 阿里云对象存储数据迁移到UFile对象存储
+ - 七牛云对象存储数据迁移到UFile对象存储
  - UFile对象存储不同bucket之前的数据迁移
 
 ### 准备工作
