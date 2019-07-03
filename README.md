@@ -55,6 +55,15 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
  	  "accessKey": ""         //私钥信息  
    >}    
 
+ - #### 七牛云配置文件说明
+   >
+   >{    
+  	"bucket": "%BUCKET%",                    //七牛云Kodo存储空间名称         
+    "domain": "%DOMAIN%",               //kodo-test-bucket绑定的CDN域名     
+    "accessKey": "",                    //公钥信息             
+    "secretKey": ""                     //私钥信息     
+   >}    
+
  - #### UFile配置文件
    >
    >  {  
@@ -145,6 +154,52 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
      显示执行:`./ufile-import ./job_test`,启动服务。
      如果要后台执行服务,可以执行`nohup ./ufile-import ./job_test &`  启动服务。
  
+ ### 从七牛云Kodo迁移到UFile对象存储
+   假设我在七牛云Kodo有一个bucket，名字为`kodo-test-bucket`,所在地域为华北,绑定的CDN域名为:`kodo-test.clouddn.com`,accessKey为:`kodoAccessKey`,secretKey为:`kodoSecretKey`  
+   我在UFile对象存储有一个bucket,名字为`ufile-test-bucket`,所在地域为上海，对应的外网访问域名host为:`ufile-test-bucket.cn-sh2.ufileos.com`,公钥为:`ufiletestpublickey`,私钥为:`ufileprivatekeydata`  
+
+   - #### 首先，进入`ufile-import`目录，编写kodo配置文件。  
+     - `1. cd ufile-import`  进入文件目录  
+     - `2. mkdir job_test` 创建存放配置文件的文件夹  
+     - `3. cp template/kodo.json.template ./job_test/src.kodo.json` 复制配置文件模板到指定目录  
+     - 编辑src.kodo.json文件，填写内容如下:
+        >
+        >{             
+  	     "bucket": "kodo-test-bucket",                    //七牛云Kodo存储空间名称         
+  	     "domain": "http://kodo-test.clouddn.com",               //kodo-test-bucket绑定的CDN域名     
+ 	       "accessKey": "kodoAccessKey",                    //公钥信息             
+ 	       "secretKey": "kodoSecretKey"                     //私钥信息       
+	       }  
+    
+   - #### 复制ufile配置文件，并且编辑填写相应内容:
+     - 复制配置文件模板`cp template/ufile.json.template ./job_test/dst.ufile.json`
+     - 编辑`dst.ufile.json`,填写内容如下
+         >
+         > {    
+         "public_key":"ufiletestpublickey",        //公钥              
+   	     "private_key":"ufileprivatekeydata",    	 //私钥  
+         "bucket_name":"ufile-test-bucket", //bucket名称  
+         "file_host":"cn-sh2.ufileos.com", //bucket的host信息，例如:cn-bj.ufileos.com  
+         "bucket_host":"" //为空  
+         } 
+     
+   - #### 复制ufile-import配置文件，并且编辑填写相应内容:
+     - 复制配置文件模板 `cp template/ufile-import.json.template ./job_test/ufile-import.json`
+     - 编写ufile-import.json配置文件，填写内容如下：
+        >
+	      >{  
+         "redis": "localhost:6379", //本地redis服务端口号  
+         "concurrent": 40, //每秒处理的线程数  
+         "temp": "/tmp/", //存放文件的临时文件夹目录  
+         "retry_count": 4, //如果失败了，尝试重试的次数。  
+         "source": "src.kodo.json",  //源站的配置文件名称  
+         "destine": "dst.ufile.json"//目标空间的配置文件名称  
+       }
+     
+     #### 启动ufile-import服务
+     显示执行:`./ufile-import ./job_test`,启动服务。
+     如果要后台执行服务,可以执行`nohup ./ufile-import ./job_test &`  启动服务。
+
  ### UFile对象存储不同bucket之前的数据迁移
    假设我在UFile对象存储有一个bucket,名字为`ufile-bucket-A`,所在地域为上海，对应的外网访问域名host为:`ufile-bucket-A.cn-sh2.ufileos.com`,公钥为:`ufiletestpublickeyA`,私钥为:`ufileprivatekeydataA`  
    我想将数据迁到另外一个bucket，名字为`ufile-bucket-B`,所在地域为北京，对应的外网访问域名host为:`ufile-bucket-B.cn-bj.ufileos.com`,公钥为:`ufiletestpublickeyB`,私钥为:`ufileprivatekeydataB`.
