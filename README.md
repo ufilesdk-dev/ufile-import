@@ -55,7 +55,8 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
   	"endpoint": "",       //阿里云OSS域名  
   	"bucket": "%BUCKET%", //阿里云OSS存储空间名称  
  	  "accessID": "",         //公钥信息  
- 	  "accessKey": ""         //私钥信息  
+ 	  "accessKey": "",         //私钥信息  
+	 "prefix":""           //文件前缀  
    >}    
 
  - #### 七牛云配置文件说明
@@ -125,7 +126,8 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
   	     "endpoint": "oss-cn-beijing.aliyuncs.com",      //阿里云OSS域名            
   	     "bucket": "oss-test-bucket",                    //阿里云OSS存储空间名称         
  	       "accessID": "osstestaccessId",                     //公钥信息             
- 	       "accessKey": "osstestaccessKeyDate"                //私钥信息       
+ 	       "accessKey": "osstestaccessKeyDate",                //私钥信息  
+	     "prefix":"test2/"                                  //文件前缀       
 	       }  
     
    - #### 复制ufile配置文件，并且编辑填写相应内容:
