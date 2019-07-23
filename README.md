@@ -73,7 +73,7 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
 
  - #### UFile配置文件
    >
-   >  {  
+   >{  
         "public_key":"",     //公钥  
         "private_key":"",    	 //私钥  
         "bucket_name":"%BUCKET%", //bucket名称  
@@ -83,10 +83,10 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
 
 - #### s3配置文件
    >
-   >  {  
-        "bucket":"",
-        "region":"",
-        "endPoint":"",
+   >{  
+        "bucket":"", 
+        "region":"", 
+        "endPoint":"", 
         "accessKeyId":"",          //公钥  
         "secretAccessKey":""       //私钥
       }  
@@ -279,7 +279,7 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
          "region": "cn-beijing",                  //接入地域
   	     "endpoint": "s3-cn-beijing.xxx.com",      //接入域名  
  	       "accessID": "s3accessKeyId",                     //公钥信息             
- 	       "accessKey": "s3secretAccessKeyId",                //私钥信息  
+ 	       "accessKey": "s3secretAccessKey",                //私钥信息  
 	       }  
     
    - #### 复制ufile配置文件，并且编辑填写相应内容:
