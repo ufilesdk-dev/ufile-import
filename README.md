@@ -268,7 +268,7 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
    假设我在某一支持s3协议的对象存储产品中有一个bucekt，名字为`s3-bucket`,所在地域为华北2（北京）,对应的外网访问EndPoint为:`s3-cn-beijing.xxx.com`,accessKeyId为:`s3accessKeyId`,secretAccessKey为:`s3secretAccessKey`  
    我在UFile对象存储有一个bucket,名字为`ufile-test-bucket`,所在地域为上海，对应的外网访问域名host为:`ufile-test-bucket.cn-sh2.ufileos.com`,公钥为:`ufilePublickey`,私钥为:`ufilePrivatekey`  
 
-   - #### 首先，进入`ufile-import`目录，编写oss配置文件。  
+   - #### 首先，进入`ufile-import`目录，编写s3配置文件。  
      - `1. cd ufile-import`  进入文件目录  
      - `2. mkdir job_test` 创建存放配置文件的文件夹  
      - `3. cp template/s3.json.template ./job_test/src.s3.json` 复制s3配置文件模板到指定目录  
