@@ -84,9 +84,9 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
 - #### s3配置文件
    >
    >{  
-        "bucket":"", 
-        "region":"", 
-        "endPoint":"", 
+        "bucket":"",       //bucket名称
+        "region":"",       //接入地域
+        "endPoint":"",     //接入域名
         "accessKeyId":"",          //公钥  
         "secretAccessKey":""       //私钥
       }  
