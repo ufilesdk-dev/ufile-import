@@ -225,7 +225,7 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
      - `1. cd ufile-import`  进入文件目录  
      - `2. mkdir job_test` 创建存放配置文件的文件夹  
      - `3. cp template/ufile.json.template ./job_test/src.ufile.json` 复制配置文件模板到指定目录  
-     - 编辑src.oss.json文件，填写内容如下:
+     - 编辑src.ufile.json文件，填写内容如下:
        >
        >{      
        "public_key":"ufiletestpublickeyA",        //公钥             
@@ -236,8 +236,8 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
       }
      
    - #### 复制ufile配置文件，并且编辑填写相应内容:
-     - 复制配置文件模板`cp template/ufile.json.template ./job_test/dst.oss.json`
-     - 编辑`dst.oss.json`,填写内容如下
+     - 复制配置文件模板`cp template/ufile.json.template ./job_test/dst.ufile.json`
+     - 编辑`dst.ufile.json`,填写内容如下
        >
        >{    
        "public_key":"ufiletestpublickeyB",        //公钥           
