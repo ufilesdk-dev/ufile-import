@@ -229,7 +229,7 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
        >
        >{      
        "public_key":"ufiletestpublickeyA",        //公钥             
-   	   "private_key":"ufileprivatekeydataA",    	 //私钥  
+        "private_key":"ufileprivatekeydataA",    	 //私钥  
        "bucket_name":"ufile-bucket-A", //bucket名称  
        "file_host":"cn-sh2.ufileos.com", //bucket的host信息，例如:cn-bj.ufileos.com  
        "bucket_host":"" //为空  
@@ -240,11 +240,11 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
      - 编辑`dst.ufile.json`,填写内容如下
        >
        >{    
-       "public_key":"ufiletestpublickeyB",        //公钥           
-   	   "private_key":"ufileprivatekeydataB",    	 //私钥
-       "bucket_name":"ufile-bucket-B", //bucket名称
-       "file_host":"cn-bj.ufileos.com", //bucket的host信息，例如:cn-bj.ufileos.com  
-       "bucket_host":"" //为空  
+       "public_key":"ufiletestpublickeyB",          //公钥            
+       "private_key":"ufileprivatekeydataB",    	 //私钥
+       "bucket_name":"ufile-bucket-B", //bucket名称  
+       "file_host":"cn-bj.ufileos.com", //bucket的host信息，例如:cn-bj.ufileos.com    
+       "bucket_host":"" //为空    
        >}   
      
    - #### 复制ufile-import配置文件，并且编辑填写相应内容:
