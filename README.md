@@ -241,7 +241,7 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
        >
        >{    
        "public_key":"ufiletestpublickeyB",          //公钥            
-       "private_key":"ufileprivatekeydataB",    	 //私钥
+       "private_key":"ufileprivatekeydataB",    //私钥  
        "bucket_name":"ufile-bucket-B", //bucket名称  
        "file_host":"cn-bj.ufileos.com", //bucket的host信息，例如:cn-bj.ufileos.com    
        "bucket_host":"" //为空    
