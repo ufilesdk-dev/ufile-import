@@ -113,8 +113,9 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
 
 ####  2. 安装程序。
  -  进入下载安装包目录，解压文件.   
-   `unzip master.zip`   
-   `tar zxvf  ufile-import.tgz`
+   `unzip master.zip`  
+   `cd ufile-import-master`    
+   `tar zxvf  ufile-import.tgz`  
 #### 3. 启动redis服务。
  - 服务依赖于redis服务，安装包中已经还有redis服务的相关配置，直接启动即可。  
      `1 cd ufile-import`  
