@@ -145,8 +145,8 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
 	       }  
     
    - #### 复制ufile配置文件，并且编辑填写相应内容:
-     - 复制配置文件模板`cp template/ufile.json.template ./job_test/dst.oss.json`
-     - 编辑`dst.oss.json`,填写内容如下
+     - 复制配置文件模板`cp template/ufile.json.template ./job_test/dst.ufile.json`
+     - 编辑`dst.ufile.json`,填写内容如下
          >
          > {    
          "public_key":"ufiletestpublickey",        //公钥              
