@@ -113,8 +113,9 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
 
 ####  2. 安装程序。
  -  进入下载安装包目录，解压文件.   
-   `unzip master.zip`   
-   `tar zxvf  ufile-import.tgz`
+   `unzip master.zip`  
+   `cd ufile-import-master`    
+   `tar zxvf  ufile-import.tgz`  
 #### 3. 启动redis服务。
  - 服务依赖于redis服务，安装包中已经还有redis服务的相关配置，直接启动即可。  
      `1 cd ufile-import`  
@@ -144,8 +145,8 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
 	       }  
     
    - #### 复制ufile配置文件，并且编辑填写相应内容:
-     - 复制配置文件模板`cp template/ufile.json.template ./job_test/dst.oss.json`
-     - 编辑`dst.oss.json`,填写内容如下
+     - 复制配置文件模板`cp template/ufile.json.template ./job_test/dst.ufile.json`
+     - 编辑`dst.ufile.json`,填写内容如下
          >
          > {    
          "public_key":"ufiletestpublickey",        //公钥              
@@ -225,26 +226,26 @@ ufile-import是对象存储UFile提供的一款将数据迁移至UFile(Bucket)�
      - `1. cd ufile-import`  进入文件目录  
      - `2. mkdir job_test` 创建存放配置文件的文件夹  
      - `3. cp template/ufile.json.template ./job_test/src.ufile.json` 复制配置文件模板到指定目录  
-     - 编辑src.oss.json文件，填写内容如下:
+     - 编辑src.ufile.json文件，填写内容如下:
        >
        >{      
        "public_key":"ufiletestpublickeyA",        //公钥             
-   	   "private_key":"ufileprivatekeydataA",    	 //私钥  
+        "private_key":"ufileprivatekeydataA",    	 //私钥  
        "bucket_name":"ufile-bucket-A", //bucket名称  
        "file_host":"cn-sh2.ufileos.com", //bucket的host信息，例如:cn-bj.ufileos.com  
        "bucket_host":"" //为空  
       }
      
    - #### 复制ufile配置文件，并且编辑填写相应内容:
-     - 复制配置文件模板`cp template/ufile.json.template ./job_test/dst.oss.json`
-     - 编辑`dst.oss.json`,填写内容如下
+     - 复制配置文件模板`cp template/ufile.json.template ./job_test/dst.ufile.json`
+     - 编辑`dst.ufile.json`,填写内容如下
        >
        >{    
-       "public_key":"ufiletestpublickeyB",        //公钥           
-   	   "private_key":"ufileprivatekeydataB",    	 //私钥
-       "bucket_name":"ufile-bucket-B", //bucket名称
-       "file_host":"cn-bj.ufileos.com", //bucket的host信息，例如:cn-bj.ufileos.com  
-       "bucket_host":"" //为空  
+       "public_key":"ufiletestpublickeyB",          //公钥            
+       "private_key":"ufileprivatekeydataB",    //私钥  
+       "bucket_name":"ufile-bucket-B", //bucket名称  
+       "file_host":"cn-bj.ufileos.com", //bucket的host信息，例如:cn-bj.ufileos.com    
+       "bucket_host":"" //为空    
        >}   
      
    - #### 复制ufile-import配置文件，并且编辑填写相应内容:
